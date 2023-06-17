@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <form onSubmit={handleSubmit}>
+        <form id="form" onSubmit={handleSubmit}>
           <input
             placeholder="hi"
             value={form}

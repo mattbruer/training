@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.link {
-  color: blue;
+#form input {
+  border: 1px solid red;
 }
