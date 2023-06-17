@@ -3,6 +3,8 @@ import { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 
+const deployed = "https://training-wheat.vercel.app";
+
 export default function Home() {
   const [form, setForm] = useState("");
   const [res, setRes] = useState("");
@@ -10,7 +12,7 @@ export default function Home() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     window.localStorage.setItem("pass", form);
-    const { data } = await axios.post("https://training-wheat.vercel.app/api", {
+    const { data } = await axios.post("http://localhost:3000/api", {
       pass: window.localStorage.getItem("pass"),
     });
     setRes(data.msg);
