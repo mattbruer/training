@@ -10,7 +10,7 @@ export default function Home() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     window.localStorage.setItem("pass", form);
-    const { data } = await axios.post("http://localhost:3000/api", {
+    const { data } = await axios.post("https://training-wheat.vercel.app/api", {
       pass: window.localStorage.getItem("pass"),
     });
     setRes(data.msg);
