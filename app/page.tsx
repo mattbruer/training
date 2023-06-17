@@ -11,6 +11,7 @@ const baseUrl =
 export default function Home() {
   const [form, setForm] = useState("");
   const [res, setRes] = useState("");
+  const [src, setSrc] = useState("");
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -19,6 +20,8 @@ export default function Home() {
       pass: window.localStorage.getItem("pass"),
     });
     setRes(data.msg);
+    setSrc(data.Src);
+    console.log(data);
   };
   return (
     <div>
@@ -32,6 +35,7 @@ export default function Home() {
           <button type="submit">submit to me</button>
         </form>
         <p>{res}</p>
+        <p>{src}</p>
       </div>
     </div>
   );
