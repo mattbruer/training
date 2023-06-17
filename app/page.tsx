@@ -20,7 +20,7 @@ export default function Home() {
       pass: window.localStorage.getItem("pass"),
     });
     setRes(data.msg);
-    setSrc(data.Src);
+    setSrc(data.source);
     console.log(data);
   };
   return (
