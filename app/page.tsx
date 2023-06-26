@@ -32,7 +32,7 @@ export default function Home() {
             value={form}
             onChange={(e) => setForm(e.target.value)}
           />
-          <button type="submit">submit to me</button>
+          <button type="submit">submit</button>
         </form>
         <p>{res}</p>
         <p>{src}</p>
