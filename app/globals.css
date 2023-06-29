@@ -1,3 +1,8 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
+
+:root {
+  --nav-container-height: 50px;
+  --shadow: 0px 0px 5px black;
+}

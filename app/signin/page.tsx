@@ -1,30 +1,32 @@
 "use client";
-import React from "react";
+import { useState } from "react";
 import signIn from "../firebase/auth/signin";
 import { useRouter } from "next/navigation";
+import { UserCredential } from "firebase/auth";
 
 function Page() {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [res, setRes] = useState<UserCredential | null>(null);
   const router = useRouter();
 
   const handleForm = async (event: any) => {
     event.preventDefault();
 
     const { result, error } = await signIn(email, password);
-
     if (error) {
       return console.log(error);
     }
 
     // else successful
+    setRes(result);
     console.log(result);
-    return router.push("/admin");
+    // return router.push("/admin");
   };
   return (
     <div className="wrapper">
       <div className="form-wrapper">
-        <h1 className="mt-60 mb-30">Sign up</h1>
+        <h1 className="mt-60 mb-30">Sign In</h1>
         <form onSubmit={handleForm} className="form">
           <label htmlFor="email">
             <p>Email</p>
@@ -48,8 +50,9 @@ function Page() {
               placeholder="password"
             />
           </label>
-          <button type="submit">Sign up</button>
+          <button type="submit">Sign In</button>
         </form>
+        <p>{JSON.stringify(res?.user.email)}</p>
       </div>
     </div>
   );

@@ -1,42 +1,41 @@
-"use client";
-import { useState } from "react";
+import Newsfeed from "@/components/Newsfeed";
+import Mood from "@/components/mood";
 import Link from "next/link";
-import axios from "axios";
+import Providers from "@/components/Provider";
+import { store } from "../store";
+import { setMsg } from "../store/uiSlice";
+import Preloader from "@/components/Preloader";
 
-const baseUrl =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : "https://training-wheat.vercel.app";
+export default async function Home() {
+  const response = await fetch("http://localhost:8080/api/users", {
+    method: "GET",
+    next: { revalidate: 0 },
+  });
 
-export default function Home() {
-  const [form, setForm] = useState("");
-  const [res, setRes] = useState("");
-  const [src, setSrc] = useState("");
+  const data = await response.json();
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    window.localStorage.setItem("pass", form);
-    const { data } = await axios.post(`${baseUrl}/api`, {
-      pass: window.localStorage.getItem("pass"),
-    });
-    setRes(data.msg);
-    setSrc(data.source);
-    console.log(data);
-  };
+  store.dispatch(setMsg(data.users));
+
   return (
-    <div>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <form id="form" onSubmit={handleSubmit}>
-          <input
-            placeholder="hi"
-            value={form}
-            onChange={(e) => setForm(e.target.value)}
-          />
-          <button type="submit">submit</button>
-        </form>
-        <p>{res}</p>
-        <p>{src}</p>
-      </div>
+    <div className="bg-purple-200 p-5">
+      <Preloader msg={data.users[0].email} />
+
+      <h1 className="text-4xl">Hello, User!</h1>
+      {data.users && (
+        <div className="border p-5 bg-emerald-200 m-5 rounded-2xl">
+          <p className="underline">These values come from the api/db</p>
+          {data.users.map((u: any) => (
+            <p key={u.email}>{u.email}</p>
+          ))}
+        </div>
+      )}
+      <Providers>
+        <Newsfeed />
+      </Providers>
+
+      <Providers>
+        <Mood />
+      </Providers>
     </div>
   );
 }

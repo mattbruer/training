@@ -1,0 +1,13 @@
+.nav-container {
+  box-shadow: var(--shadow);
+  height: var(--nav-container-height);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+}
