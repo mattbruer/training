@@ -3,6 +3,8 @@ import { store } from "@/store";
 import { useSelector } from "react-redux";
 import type { RootState } from "@/store";
 
+import { useEffect } from "react";
+
 const Newsfeed = () => {
   const { msg, moodLevel } = useSelector((state: RootState) => state.ui);
   return (
