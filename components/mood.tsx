@@ -7,14 +7,17 @@ import { setMsg, setMoodLevel } from "@/store/uiSlice";
 import { store } from "@/store";
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+import { socket } from "@/socket";
 
 const Mood = () => {
   const dispatch = useAppDispatch();
   const { msg, moodLevel } = useAppSelector((state) => state.ui);
   const [open, setOpen] = useState(true);
-
   const handleMood = (e: any) => {
-    dispatch(setMoodLevel(+e.target.value));
+    socket.emit("mood", +e.target.value);
+    socket.on("mood-change", (data) => {
+      dispatch(setMoodLevel(data));
+    });
   };
   return (
     <div>

@@ -1,3 +1,5 @@
+"use client";
+import { useEffect } from "react";
 import Newsfeed from "@/components/Newsfeed";
 import Mood from "@/components/mood";
 import Link from "next/link";
@@ -5,8 +7,17 @@ import Providers from "@/components/Provider";
 import { store } from "../store";
 import { setMsg } from "../store/uiSlice";
 import Preloader from "@/components/Preloader";
-
+import { socket } from "@/socket";
 export default async function Home() {
+  useEffect(() => {
+    socket.on("msg", (msg) => {
+      console.log(msg);
+    });
+    socket.emit("hi", (what: any) => {
+      console.log(what);
+    });
+  }, []);
+
   // const response = await fetch("http://localhost:8080/api/users", {
   //   method: "GET",
   //   next: { revalidate: 0 },
@@ -15,6 +26,11 @@ export default async function Home() {
   // const data = await response.json();
 
   // store.dispatch(setMsg(data.users));
+  // useEffect(() => {
+  //   socket.on("msg", (msg) => {
+  //     console.log(msg);
+  //   });
+  // }, []);
 
   return (
     <div className="bg-purple-200 p-5">
