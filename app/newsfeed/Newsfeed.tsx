@@ -4,7 +4,6 @@ import { loadItems } from "@/store/newsfeedSlice";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "@/store";
 import axios from "axios";
-
 import NewsfeedItem from "./NewsfeedItem";
 type NF = {
   id: string;
@@ -17,7 +16,7 @@ type NF = {
 const Newsfeed = () => {
   const dispatch = useDispatch();
 
-  const { allItems } = useSelector((state) => state.newsfeed);
+  const { allItems } = useSelector((state: RootState) => state.newsfeed);
   useEffect(() => {
     const fetchNF = async () => {
       console.log("fetching newfeed");

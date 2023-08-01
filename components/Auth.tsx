@@ -6,10 +6,11 @@ import { store } from "@/store";
 import Sign from "@/app/sign/page";
 import { initSock } from "@/app/socket";
 import { Socket } from "socket.io-client";
+import { RootState } from "@/store";
 
 const Auth = ({ children }: any) => {
   const dispatch = useDispatch<typeof store.dispatch>();
-  const { user } = useSelector((state: { auth: { user: {} } }) => state.auth);
+  const { user } = useSelector((state: RootState) => state.auth);
   const [socket, setSocket] = useState<Socket>();
 
   useEffect(() => {
