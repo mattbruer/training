@@ -1,14 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { Socket } from "socket.io-client";
 
 export interface uiState {
   msg: string;
   moodLevel: number;
+  socket: any;
 }
 
 const initialState: uiState = {
   msg: "hi",
   moodLevel: 0,
+  socket: null,
 };
 
 const uiSlice = createSlice({

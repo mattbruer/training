@@ -1,24 +1,26 @@
 "use client";
-
-import { useState, ChangeEvent, DragEventHandler } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch, TypedUseSelectorHook } from "react-redux";
 import { RootState, AppDispatch } from "@/store";
-import { setMsg, setMoodLevel } from "@/store/uiSlice";
-import { store } from "@/store";
+import { initSock } from "@/app/socket";
+import { Socket } from "socket.io-client";
+
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-import { socket } from "@/socket";
 
-const Mood = () => {
-  const dispatch = useAppDispatch();
-  const { msg, moodLevel } = useAppSelector((state) => state.ui);
+const Mood = ({ socket }: any) => {
+  // const [sck, setSck] = useState<Socket | null>(null);
+  // useEffect(() => {
+  //   setSck(initSock());
+  // }, []);
+
+  const { msg } = useAppSelector((state) => state.ui);
   const [open, setOpen] = useState(true);
   const handleMood = (e: any) => {
     socket.emit("mood", +e.target.value);
-    socket.on("mood-change", (data) => {
-      dispatch(setMoodLevel(data));
-    });
   };
+
   return (
     <div>
       {open ? (
@@ -35,7 +37,7 @@ const Mood = () => {
                 <p>bad</p>
                 <input
                   onChange={handleMood}
-                  className="ml-2 mr-2"
+                  className="ml-2 mr-2 slider"
                   name="mood"
                   type="range"
                 />

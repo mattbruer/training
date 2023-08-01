@@ -3,17 +3,21 @@ import "./style.css";
 import Link from "next/link";
 
 const linkStyle = "ml-2 mr-2";
-const links = ["dash", "photos", "food", "calendar", "links", "tasks", "files"];
+const links = [
+  "dash",
+  "photos",
+  "food",
+  "calendar/2023",
+  "links",
+  "tasks",
+  "files",
+];
 
 const Navbar = () => {
   return (
     <div className="nav-container">
       {links.map((link) => (
-        <Link
-          key={link}
-          className={linkStyle}
-          href={link === "dash" ? "/" : link}
-        >
+        <Link key={link} className={linkStyle} href={link}>
           <p className="first-letter:uppercase">{link}</p>
         </Link>
       ))}

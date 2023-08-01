@@ -1,33 +1,13 @@
-import Image from "next/image";
+import Navbar from "@/components/nav/navbar";
 import Link from "next/link";
-import React from "react";
+import Gallery from "./Gallery";
+import Auth from "@/components/Auth";
 
-const images = () => {
-  const imgs = [];
-  for (let i = 0; i < 15; i++) {
-    imgs.push(
-      <Image
-        className="p-1 border"
-        width="200"
-        height="0"
-        style={{
-          maxWidth: "33%",
-          height: "auto",
-          boxShadow: "0px 0px 2px black",
-        }}
-        src={"/me.jpeg"}
-        alt={"me"}
-      />
-    );
-  }
-  return imgs;
-};
-
-const page = () => {
+const page = async () => {
   return (
-    <div>
-      <h1>Photos</h1>
-      <div className="flex flex-wrap justify-center mb-16">{images()}</div>
+    <Auth>
+      <Navbar />
+      <Gallery />
       <div
         style={{ boxShadow: "0px 0px 5px black" }}
         className="fixed h-16 bottom-4  bg-white w-screen border"
@@ -37,7 +17,7 @@ const page = () => {
           Upload
         </Link>
       </div>
-    </div>
+    </Auth>
   );
 };
 

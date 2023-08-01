@@ -1,10 +1,11 @@
+import React from "react";
+import Recipe from "./Recipe";
 import Auth from "@/components/Auth";
-import PhotoUpload from "@/components/PhotoUpload";
 
 const page = () => {
   return (
     <Auth>
-      <PhotoUpload />
+      <Recipe />
     </Auth>
   );
 };

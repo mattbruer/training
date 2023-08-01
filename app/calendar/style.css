@@ -1,0 +1,18 @@
+:root {
+  --cal-unit-width: 14.2857142857vw;
+}
+.day {
+  width: var(--cal-unit-width);
+  overflow: hidden;
+}
+
+.month {
+  border: 1px solid black;
+  height: 230px;
+  width: 280px;
+}
+
+.month-thumb-day {
+  width: 20px;
+  height: 20px;
+}
