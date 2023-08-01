@@ -6,6 +6,7 @@ import { newRecipe } from "@/store/foodSlice";
 import { useRouter } from "next/navigation";
 import { addToNewsfeed } from "@/store/newsfeedSlice";
 import "./style.css";
+import { RootState } from "@/store";
 
 type FormVals = {
   name: string;
@@ -16,7 +17,7 @@ type FormVals = {
 const Recipe = ({ socket }: any) => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector((state: RootState) => state.auth);
 
   const [formVals, setFormVals] = useState<FormVals>({
     name: "",
