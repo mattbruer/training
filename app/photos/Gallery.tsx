@@ -5,6 +5,7 @@ import { loadPhotos } from "@/store/photoSlice";
 import { RootState } from "@/store";
 import Image from "next/image";
 import axios from "axios";
+import Link from "next/link";
 
 const Gallery = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,8 @@ const Gallery = () => {
       <div className="flex justify-center flex-wrap bg-slate-100 border border-black rounded p-1 ">
         {photos &&
           photos.map((p: any) => (
-            <div
+            <Link
+              href={`/photos/${p.id}`}
               className="flex border m-px shadow shadow-black rounded bg-white items-center justify-center"
               style={{
                 width: "calc(33% - 1px)",
@@ -50,7 +52,7 @@ const Gallery = () => {
                   width: "100%",
                 }}
               />
-            </div>
+            </Link>
           ))}
       </div>
     </div>

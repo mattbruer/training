@@ -1,12 +1,16 @@
 "use client";
 import { useParams } from "next/navigation";
 import Auth from "@/components/Auth";
+import { daysOfWeek, months } from "../../util";
 
 const Header = () => {
   const params = useParams();
+  const [year, month, day] = params.date.split("-");
+  const dayOfWeek = daysOfWeek[new Date(+year, +month - 1, +day).getDay()];
+
   return (
     <div className="text-4xl mt-5 text-center">
-      {new Date(params.date).toDateString()}
+      <p>{`${dayOfWeek} ${months[+month - 1]} ${day}, ${year}`}</p>
     </div>
   );
 };

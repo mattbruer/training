@@ -2,22 +2,26 @@ import React from "react";
 import "./style.css";
 import Link from "next/link";
 
-const linkStyle = "ml-2 mr-2";
 const links = [
   "dash",
   "photos",
   "food",
   "calendar/2023",
-  "links",
-  "tasks",
-  "files",
+  "reading",
+  "habits",
+  "youtube",
+  "journal",
 ];
 
 const Navbar = () => {
   return (
     <div className="nav-container">
       {links.map((link) => (
-        <Link key={link} className={linkStyle} href={link}>
+        <Link
+          key={link}
+          className="ml-1 link bg-blue-100 hover:bg-blue-300 rounded-2xl w-1/5 border shadow shadow-black  h-1/3 flex items-center justify-center"
+          href={`http://localhost:3000/${link}`}
+        >
           <p className="first-letter:uppercase">{link}</p>
         </Link>
       ))}

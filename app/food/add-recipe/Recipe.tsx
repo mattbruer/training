@@ -37,7 +37,7 @@ const Recipe = ({ socket }: any) => {
         ...formVals,
         user,
       });
-      console.log(data);
+
       dispatch(newRecipe(data));
 
       socket.emit("addNewsfeedItem", data.nfItem);

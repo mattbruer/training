@@ -1,6 +1,6 @@
 .nav-container {
   box-shadow: var(--shadow);
-  height: var(--nav-container-height);
+  height: 150px;
   display: flex;
   justify-content: space-around;
   align-items: center;

@@ -26,7 +26,10 @@ const MonthThumb: React.FC<PageProps> = ({ month, year }) => {
 
   return (
     <>
-      <p className="text-center text-2xl">{month}</p>
+      <div>
+        <p className="text-center text-2xl">{month}</p>
+      </div>
+
       <div className="flex">
         {daysOfWeek.map((d) => (
           <div
@@ -40,17 +43,19 @@ const MonthThumb: React.FC<PageProps> = ({ month, year }) => {
       </div>
       <div className="p-2 flex flex-wrap">
         {emptyDays()}
+
         {days.map((d) => (
           <div
             className={
-              new Date(d.date).toLocaleDateString() ===
-              new Date(Date.now()).toLocaleDateString()
+              d.date === new Date(Date.now()).toISOString().split("T")[0]
                 ? "border text-center bg-slate-300"
                 : "border text-center"
             }
             style={{ width: `${(1 / 7) * 100}%` }}
             key={d.date}
           >
+            {/* refactor with padstart(2,"0") */}
+
             <p>{d.day[0] === "0" ? d.day[1] : d.day}</p>
           </div>
         ))}

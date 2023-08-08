@@ -1,6 +1,7 @@
 import React from "react";
 import Details from "./Details";
 import axios from "axios";
+import Navbar from "@/components/nav/navbar";
 
 const page = async ({ params }: any) => {
   const { data } = await axios.get(
@@ -8,6 +9,7 @@ const page = async ({ params }: any) => {
   );
   return (
     <div>
+      <Navbar />
       <Details recipe={data} />
     </div>
   );

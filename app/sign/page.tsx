@@ -1,10 +1,9 @@
 "use client";
-import React, { useState, useEffect, FormEvent } from "react";
+import React, { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import Auth from "@/components/Auth";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { store } from "@/store";
-import { authenticate, setUser } from "@/store/authSlice";
+import { authenticate } from "@/store/authSlice";
 
 const Sign = () => {
   const router = useRouter();

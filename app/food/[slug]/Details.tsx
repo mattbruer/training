@@ -26,7 +26,7 @@ const Details = ({ recipe }: any) => {
           style={{ objectFit: "cover" }}
         />
       </div>
-      <div className="w-screen">
+      <div className="w-screen p-5">
         <p>{recipe.description}</p>
         <button className="border border-black p-2 rounded-2xl">
           <Link target="_blank" href={recipe.url}>

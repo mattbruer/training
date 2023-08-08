@@ -7,16 +7,10 @@ const page = async () => {
   return (
     <Auth>
       <Navbar />
+      <Link className="border shadow p-5 rounded" href="/photos/upload">
+        Upload
+      </Link>
       <Gallery />
-      <div
-        style={{ boxShadow: "0px 0px 5px black" }}
-        className="fixed h-16 bottom-4  bg-white w-screen border"
-      >
-        <Link className="border shadow" href="/photos/upload">
-          {" "}
-          Upload
-        </Link>
-      </div>
     </Auth>
   );
 };

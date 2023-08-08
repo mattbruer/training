@@ -14,7 +14,7 @@ const EventForm = () => {
     date: "",
     time: "",
     notes: "",
-    user,
+    userId: user.id,
   });
 
   const router = useRouter();

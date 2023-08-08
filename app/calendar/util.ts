@@ -7,6 +7,7 @@ export const months: string[] = [
   "Jun",
   "Jul",
   "Aug",
+  "Sep",
   "Oct",
   "Nov",
   "Dec",
@@ -27,13 +28,14 @@ export function getDaysArray(month: number, year: number): DayInfo[] {
 
   for (let day = 1; day <= lastDayOfMonth; day++) {
     const date = new Date(year, month - 1, day);
+    let [m, d, y] = date.toLocaleDateString().split("/");
+    m = m.padStart(2, "0");
+    d = d.padStart(2, "0");
+
     const dayOfWeek = date.getDay();
-    const formattedDate = `${String(month).padStart(2, "0")}-${String(
-      day
-    ).padStart(2, "0")}-${year}`;
 
     days.push({
-      date: formattedDate,
+      date: `${y}-${m}-${d}`,
       month: String(month).padStart(2, "0"),
       day: String(day).padStart(2, "0"),
       year,

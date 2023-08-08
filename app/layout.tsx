@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body style={{ position: "relative" }} className={inter.className}>
+      <body className={inter.className}>
         {/* <Navbar /> */}
         {/* <div
           style={{ position: "absolute", top: "var(--nav-container-height)" }}
@@ -28,7 +28,7 @@ export default function RootLayout({
           {children}
         </div> */}
         <Providers>
-          <div className="mb-5">{children}</div>
+          <div>{children}</div>
         </Providers>
       </body>
     </html>

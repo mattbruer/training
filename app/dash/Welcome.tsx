@@ -14,7 +14,7 @@ const Welcome = () => {
       {user && (
         <div className=" z-10 bg-slate-50 fixed top-0 w-screen flex justify-between shadow">
           <p className="text-2xl ml-5 ">
-            Welcome, <span className="capitalize">{user}!</span>
+            Welcome, <span className="capitalize">{user.name}!</span>
           </p>
           <button
             onClick={() => {

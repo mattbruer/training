@@ -5,6 +5,7 @@ import authReducer from "./authSlice";
 import photoReducer from "./photoSlice";
 import foodReducer from "./foodSlice";
 import newsfeedReducer from "./newsfeedSlice";
+import eventReducer from "./eventSlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     photo: photoReducer,
     food: foodReducer,
     newsfeed: newsfeedReducer,
+    events: eventReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(createLogger({ collapsed: true })),

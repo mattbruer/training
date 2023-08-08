@@ -19,7 +19,7 @@ type RecipeType = {
 };
 const page = async () => {
   return (
-    <div className="mb-16 bg-slate-50">
+    <div className="mb-16 pb-48 bg-slate-50">
       <Auth>
         <Navbar />
         <p className="text-4xl font-bold text-center mb-12 underline">

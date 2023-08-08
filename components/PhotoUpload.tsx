@@ -16,7 +16,7 @@ const PhotoUpload = ({ socket }: any) => {
     string | ArrayBuffer | null
   >(null);
 
-  const { user: poster } = useSelector((state: RootState) => state.auth);
+  const { user } = useSelector((state: RootState) => state.auth);
 
   const uploadToS3 = async (e: ChangeEvent<HTMLFormElement>) => {
     const formData = new FormData(e.target);
@@ -37,13 +37,13 @@ const PhotoUpload = ({ socket }: any) => {
     const { data } = await axios.post(`http://localhost:8080/api/photo`, {
       caption,
       ft,
-      poster,
+      userId: user!.id,
     });
 
-    const { uploadUrl, key, cap, user } = data;
+    const { uploadUrl, key, cap } = data;
 
     await axios.put(uploadUrl, file);
-    socket.emit("photo-uploaded", { key, cap, user });
+    socket.emit("photo-uploaded", { key, cap, user: user!.name });
 
     return key;
   };
@@ -73,7 +73,6 @@ const PhotoUpload = ({ socket }: any) => {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col w-11/12 m-auto">
-      <p className="text-2xl">Where am I sending this?!?!</p>
       {selectedImage && (
         <Image
           src={selectedImage as string}

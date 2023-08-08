@@ -31,11 +31,13 @@ const Newsfeed = () => {
   }, [dispatch, allItems.length]);
 
   return (
-    <div className="ml-5">
-      <p>Newsfeed</p>
-      {allItems.map((item: any) => (
-        <NewsfeedItem key={item.id} item={item} />
-      ))}
+    <div className=" pb-48">
+      <p className="text-center text-2xl">Newsfeed</p>
+      <div className="flex flex-col-reverse w-1/2 ">
+        {allItems.map((item: any) => (
+          <NewsfeedItem key={item.id} item={item} />
+        ))}
+      </div>
     </div>
   );
 };

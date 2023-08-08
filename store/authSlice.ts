@@ -3,7 +3,7 @@ import axios from "axios";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface authState {
-  user: string | null;
+  user: { name: string; id: number } | null;
 }
 
 const initialState: authState = {
@@ -14,13 +14,14 @@ export const me = createAsyncThunk<any, void>(
   "auth/me",
   async (_, thunkAPI) => {
     const token = window.localStorage.getItem("token");
-    console.log("me()");
+
     if (token) {
       const res = await axios.get("http://localhost:8080/api/auth/me", {
         headers: {
           authorization: token,
         },
       });
+
       return thunkAPI.dispatch(setAuth(res.data));
     }
   }
@@ -45,11 +46,9 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setAuth: (state, action) => {
-      state.user = action.payload.name;
-    },
-    setUser: (state, action) => {
       state.user = action.payload;
     },
+
     logout: (state, action) => {
       window.localStorage.setItem("token", action.payload);
       state.user = null;
@@ -57,5 +56,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { setUser, setAuth, logout } = authSlice.actions;
+export const { setAuth, logout } = authSlice.actions;
 export default authSlice.reducer;
