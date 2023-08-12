@@ -19,19 +19,19 @@ type RecipeType = {
 };
 const page = async () => {
   return (
-    <div className="mb-16 pb-48 bg-slate-50">
+    <div className="mb-16 pb-48 ">
       <Auth>
         <Navbar />
-        <p className="text-4xl font-bold text-center mb-12 underline">
+        <p className="text-4xl text-white font-bold text-center mb-12 underline">
           {`Welcome to the food page`}
         </p>
         <Link href="/food/pantry">
           <div>The Pantry</div>
         </Link>
-
+        <p>Restaurant page?</p>
         <AllRecipes />
         <Link href="food/add-recipe">
-          <button className="shadow border border-slate-300 p-5 rounded-2xl">
+          <button className="m-5 border border-slate-300 p-5 bg-slate-800 text-white rounded-2xl">
             Add recipe +
           </button>
         </Link>

@@ -40,10 +40,14 @@ const PhotoUpload = ({ socket }: any) => {
       userId: user!.id,
     });
 
-    const { uploadUrl, key, cap } = data;
+    const {
+      uploadUrl,
+      dataValues: { key, cap, id },
+    } = data;
+    console.log("data", data);
 
     await axios.put(uploadUrl, file);
-    socket.emit("photo-uploaded", { key, cap, user: user!.name });
+    socket.emit("photo-uploaded", { key, cap, id, user: user!.name });
 
     return key;
   };

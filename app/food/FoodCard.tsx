@@ -4,34 +4,29 @@ import Image from "next/image";
 import validator from "validator";
 
 const FoodCard = ({ url, slug, name, description, thumb }: any) => {
-  const validateURL = (value: string) => {
+  const validateURL = () => {
     return validator.isURL(thumb);
   };
   return (
     <Link href={`/food/${slug}`}>
       <div
         style={{ minHeight: "150px" }}
-        className="flex overflow-hidden border m-5 rounded-2xl bg-white shadow-xl"
+        className="flex overflow-hidden text-white border m-5 rounded-2xl bg-slate-800 shadow-xl"
       >
         {thumb && (
-          <div className="relative border" style={{ minWidth: "33%" }}>
+          <div className="relative border" style={{ minWidth: "65%" }}>
             <Image
               style={{ objectFit: "cover" }}
               fill
               alt={description}
-              src={validateURL(thumb) ? thumb : "/food.webp"}
+              src={validateURL() ? thumb : "/food.webp"}
               sizes="(max-width: 640px) 100vw, 33vw"
             />
           </div>
         )}
         <div className="p-2 ">
-          <p
-            style={{ textShadow: "2px 2px 1px lightgrey" }}
-            className="text-2xl capitalize"
-          >
-            {name}
-          </p>
-          <p className="text-slate-500">{description}</p>
+          <p className="text-2xl capitalize">{name}</p>
+          <p className="text-slate-300">{description}</p>
         </div>
       </div>
     </Link>

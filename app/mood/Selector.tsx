@@ -7,8 +7,8 @@ const Selector = ({
   name,
   kind,
 }: {
-  name: "Mood" | "Anxiety" | "Energy" | "Horny";
-  kind: "moodLevel" | "anxietyLevel" | "energyLevel" | "hornyLevel";
+  name: "Mood" | "Anxiety" | "Energy" | "Stress";
+  kind: "moodLevel" | "anxietyLevel" | "energyLevel" | "stressLevel";
 }) => {
   const [val, setVal] = useState(0);
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const Selector = ({
   };
 
   return (
-    <div>
+    <div className="text-white">
       <label htmlFor="selector">{name}</label>
       <input
         onChange={handleChange}

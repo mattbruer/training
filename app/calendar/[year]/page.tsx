@@ -18,7 +18,7 @@ const thisMonth = new Date(Date.now()).getMonth();
 const page: React.FC<PageProps> = async ({ params }) => {
   const { year } = params;
   return (
-    <div className="pt-12 pb-48">
+    <div className="pt-12 pb-48 bg-white ">
       <Navbar />
       <div className="flex w-screen justify-around items-center">
         <Link className="text-blue-500" href={`/calendar/${+year - 1}`}>

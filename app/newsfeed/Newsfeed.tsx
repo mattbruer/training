@@ -31,9 +31,17 @@ const Newsfeed = () => {
   }, [dispatch, allItems.length]);
 
   return (
-    <div className=" pb-48">
-      <p className="text-center text-2xl">Newsfeed</p>
-      <div className="flex flex-col-reverse w-1/2 ">
+    <div className="pb-48">
+      <div className="p-5 ">
+        <p
+          style={{ textShadow: "5px 5px 5px black" }}
+          className="text-white text-center text-4xl"
+        >
+          Newsfeed
+        </p>
+      </div>
+
+      <div className="flex flex-col-reverse ">
         {allItems.map((item: any) => (
           <NewsfeedItem key={item.id} item={item} />
         ))}

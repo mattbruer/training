@@ -3,21 +3,24 @@ import Auth from "@/components/Auth";
 // import SinglePhoto from "./SinglePhoto";
 import axios from "axios";
 import Image from "next/image";
+import Details from "./Details";
+import { relative } from "path";
 
 const page = async ({ params }: any) => {
-  const { data } = await axios(`http://localhost:8080/api/photo/${params.id}`);
+  const { data } = await axios(
+    `http://localhost:8080/api/photo/single-photo/${params.id}`
+  );
 
   return (
     <Auth>
       <div
         style={{
-          padding: "10px",
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
+          width: "90%",
+          margin: " 20px auto",
+          height: "60vh",
+          position: "relative",
         }}
+        className="bg-black border border-black rounded shadow shadow-black"
       >
         <Image
           alt={data.caption}
@@ -25,9 +28,8 @@ const page = async ({ params }: any) => {
           style={{ objectFit: "contain" }}
           src={`https://matt-shanna.s3.us-east-2.amazonaws.com/${data.key}`}
         />
-        <p>{data.createdAt}</p>
-        <p>{data.caption}</p>
       </div>
+      <Details data={data} />
     </Auth>
   );
 };

@@ -2,10 +2,10 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Providers from "@/components/Provider";
 import Auth from "@/components/Auth";
+import React from "react";
+import SocketWrap from "@/components/SocketWrap";
 
 const inter = Inter({ subsets: ["latin"] });
-
-import React from "react";
 
 export const metadata = {
   title: "Matt and Shanna",
@@ -27,9 +27,11 @@ export default function RootLayout({
         >
           {children}
         </div> */}
-        <Providers>
-          <div>{children}</div>
-        </Providers>
+        <SocketWrap>
+          <Providers>
+            <div>{children}</div>
+          </Providers>
+        </SocketWrap>
       </body>
     </html>
   );

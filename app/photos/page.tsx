@@ -7,8 +7,11 @@ const page = async () => {
   return (
     <Auth>
       <Navbar />
-      <Link className="border shadow p-5 rounded" href="/photos/upload">
-        Upload
+      <Link
+        className=" text-white border shadow p-5 rounded"
+        href="/photos/upload"
+      >
+        Upload +
       </Link>
       <Gallery />
     </Auth>

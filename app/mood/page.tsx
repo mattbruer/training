@@ -4,21 +4,26 @@ import Selector from "./Selector";
 import Auth from "@/components/Auth";
 import Navbar from "@/components/nav/navbar";
 import Selectors from "./Selectors";
+import MoodTracker from "./MoodTracker";
+import SocketWrap from "@/components/SocketWrap";
 
 const page = () => {
   return (
-    <Auth>
-      <Navbar />
-      <div className="pb-48">
-        <div className="border p-5 m-5">
-          <Indicator name="Mood" kind="moodLevel" />
-          <Indicator name="Anxiety" kind="anxietyLevel" />
-          <Indicator name="Energy" kind="energyLevel" />
-          <Indicator name="Horny" kind="hornyLevel" />
-        </div>
-        <Selectors />
-      </div>
-    </Auth>
+    <div className="pb-48">
+      <Auth>
+        <Navbar />
+
+        <MoodTracker />
+
+        <Indicator name="Mood" kind="moodLevel" />
+        <Indicator name="Anxiety" kind="anxietyLevel" />
+        <Indicator name="Energy" kind="energyLevel" />
+        <Indicator name="Stress" kind="stressLevel" />
+        <SocketWrap>
+          <Selectors />
+        </SocketWrap>
+      </Auth>
+    </div>
   );
 };
 

@@ -41,6 +41,7 @@ const Recipe = ({ socket }: any) => {
       dispatch(newRecipe(data));
 
       socket.emit("addNewsfeedItem", data.nfItem);
+
       setFormVals({ name: "", url: "", description: "", notes: "" });
       router.push("/food");
     } catch (error) {

@@ -25,7 +25,7 @@ const MonthThumb: React.FC<PageProps> = ({ month, year }) => {
   };
 
   return (
-    <>
+    <div className="bg-white rounded">
       <div>
         <p className="text-center text-2xl">{month}</p>
       </div>
@@ -60,7 +60,7 @@ const MonthThumb: React.FC<PageProps> = ({ month, year }) => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
