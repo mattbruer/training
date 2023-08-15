@@ -12,7 +12,7 @@ const Welcome = () => {
   return (
     <div>
       {user && (
-        <div className=" z-10 bg-slate-50 fixed top-0 w-screen flex justify-between shadow">
+        <div className="p-2 z-10 bg-slate-800 text-white fixed top-0 w-screen flex justify-between shadow">
           <p className="text-2xl ml-5 ">
             Welcome, <span className="capitalize">{user.name}!</span>
           </p>

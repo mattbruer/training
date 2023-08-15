@@ -6,11 +6,11 @@ const links = [
   "dash",
   "photos",
   "food",
-  "calendar/2023",
+  "calendar",
   "reading",
   "habits",
-  "youtube",
-  "journal",
+  "music",
+  "discuss",
 ];
 
 const Navbar = () => {
@@ -18,11 +18,22 @@ const Navbar = () => {
     <div className="nav-container ">
       {links.map((link) => (
         <Link
+          style={{
+            border: "2px groove silver",
+            boxShadow: "0px 0px 10px white, inset 0px 0px 1px 1px white",
+          }}
           key={link}
-          className="ml-1 link bg-red-900 hover:bg-red-600 rounded-2xl w-1/5  shadow-xl shadow-black  h-1/3 flex items-center justify-center"
-          href={`http://localhost:3000/${link}`}
+          className="ml-1 link bg-red-800 hover:bg-red-900 rounded-2xl w-1/5  shadow-xl shadow-black  h-1/3 flex items-center justify-center"
+          href={`http://localhost:3000/${
+            link === "calendar" ? "calendar/2023" : link
+          }`}
         >
-          <p className="first-letter:uppercase">{link}</p>
+          <p
+            style={{ textShadow: "1px 1px 1px black" }}
+            className="first-letter:uppercase"
+          >
+            {link}
+          </p>
         </Link>
       ))}
     </div>

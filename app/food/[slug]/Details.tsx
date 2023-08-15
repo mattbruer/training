@@ -28,7 +28,7 @@ const Details = ({ recipe }: any) => {
       </div>
       <div className="w-screen p-5">
         <p>{recipe.description}</p>
-        <button className="border border-black p-2 rounded-2xl">
+        <button className="border border-white p-2 rounded-2xl">
           <Link target="_blank" href={recipe.url}>
             Go To Recipe
           </Link>

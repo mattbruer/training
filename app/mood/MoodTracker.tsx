@@ -77,14 +77,14 @@ const MoodTracker = () => {
   };
 
   return (
-    <div className="flex flex-col pb-12 ">
+    <div className="flex flex-col pb-12 mb-2">
       <div style={{ height: "500px", width: "100%" }}>
         <MyResponsiveLine data={makeData()} />
         <button
           onClick={(e) => {
             setPerson(person === partner ? user!.name : partner);
           }}
-          className="text-white capitalize border p-2 rounded shadow"
+          className="ml-12 text-white capitalize border p-2 rounded shadow"
         >{`See ${person === partner ? user!.name : partner}'s data`}</button>
       </div>
     </div>

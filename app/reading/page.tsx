@@ -6,6 +6,10 @@ const page = () => {
   return (
     <Auth>
       <Navbar />
+      <div className="text-white">
+        <p>This page for any sort of article</p>
+      </div>
+
       {/* <p>this will contain all the reading. Links/articles/etc</p>
       <p>There should be a "have red" checkbox</p>
       <p>there should be a way to comment discuss each</p>

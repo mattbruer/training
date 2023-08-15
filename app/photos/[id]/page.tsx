@@ -4,7 +4,7 @@ import Auth from "@/components/Auth";
 import axios from "axios";
 import Image from "next/image";
 import Details from "./Details";
-import { relative } from "path";
+import Frame from "@/components/Frame/Frame";
 
 const page = async ({ params }: any) => {
   const { data } = await axios(
@@ -14,21 +14,34 @@ const page = async ({ params }: any) => {
   return (
     <Auth>
       <div
+        className="bg-slate-700"
+        style={{ padding: "20px", display: "flex", justifyContent: "center" }}
+      >
+        <Frame
+          src={`https://matt-shanna.s3.us-east-2.amazonaws.com/${data.key}`}
+        />
+      </div>
+
+      {/* <div
         style={{
-          width: "90%",
-          margin: " 20px auto",
+          border: "1px solid red",
+          margin: "30px auto",
           height: "60vh",
+          width: "72vw",
           position: "relative",
+          // boxShadow: "inset 0px 0px 10px 5px black",
         }}
-        className="bg-black border border-black rounded shadow shadow-black"
       >
         <Image
           alt={data.caption}
           fill
-          style={{ objectFit: "contain" }}
+          style={{
+            objectFit: "contain",
+          }}
           src={`https://matt-shanna.s3.us-east-2.amazonaws.com/${data.key}`}
         />
-      </div>
+      </div> */}
+
       <Details data={data} />
     </Auth>
   );

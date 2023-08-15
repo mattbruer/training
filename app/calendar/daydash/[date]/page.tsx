@@ -6,12 +6,14 @@ import Auth from "@/components/Auth";
 const page = () => {
   return (
     <Auth>
-      <Header />
-      <div>
-        <PhotosOfToday />
-        <p>agenda</p>
-        <p>journal</p>
-        <p>mood</p>
+      <div className="bg-white h-screen">
+        <Header />
+        <div>
+          <PhotosOfToday />
+          <p>agenda</p>
+          <p>journal</p>
+          <p>mood</p>
+        </div>
       </div>
     </Auth>
   );

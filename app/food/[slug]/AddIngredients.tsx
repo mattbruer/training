@@ -39,9 +39,9 @@ const AddIngredients = ({ recipeId }: any) => {
           value={ingredient}
           onChange={handleChange}
           type="text"
-          className="border"
+          className="border text-black"
         />
-        <button type="submit" className="border">
+        <button type="submit" className="border p-2 rounded-2xl">
           Add Ingredient
         </button>
       </form>

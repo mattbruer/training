@@ -39,7 +39,7 @@ const page: React.FC<PageProps> = async ({ params }) => {
   };
 
   return (
-    <div>
+    <div className="bg-white pb-24">
       <Navbar />
       <div className="pb-36" style={{ width: "98%", margin: "auto" }}>
         <p>maybe some search/filter functionality</p>

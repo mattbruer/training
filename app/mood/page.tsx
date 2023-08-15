@@ -14,11 +14,13 @@ const page = () => {
         <Navbar />
 
         <MoodTracker />
+        <div className="flex justify-center">
+          <Indicator name="Mood" kind="moodLevel" />
+          <Indicator name="Energy" kind="energyLevel" />
+          <Indicator name="Anxiety" kind="anxietyLevel" />
+          <Indicator name="Stress" kind="stressLevel" />
+        </div>
 
-        <Indicator name="Mood" kind="moodLevel" />
-        <Indicator name="Anxiety" kind="anxietyLevel" />
-        <Indicator name="Energy" kind="energyLevel" />
-        <Indicator name="Stress" kind="stressLevel" />
         <SocketWrap>
           <Selectors />
         </SocketWrap>

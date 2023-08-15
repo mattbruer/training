@@ -7,7 +7,8 @@ import Mood from "@/components/mood";
 import Link from "next/link";
 import Display from "../mood/Display";
 import SocketWrap from "@/components/SocketWrap";
-
+import Button1 from "@/components/Button/Button1/Button";
+import Button2 from "@/components/Button/Button2/Button2";
 const page = () => {
   return (
     <div className="mt-12">
@@ -15,6 +16,12 @@ const page = () => {
         <Navbar />
         <Welcome />
         <Display />
+        {/* <div>
+          <Button1 />
+          <Button2 />
+          <Button1 />
+          <Button1 />
+        </div> */}
 
         <div
           className="border rounded-xl m-2 shadow-xl text-white p-2 bg-slate-700"

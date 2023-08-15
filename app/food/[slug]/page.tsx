@@ -8,7 +8,7 @@ const page = async ({ params }: any) => {
     `http://localhost:8080/api/food/${params.slug}`
   );
   return (
-    <div>
+    <div className="text-white pb-48">
       <Navbar />
       <Details recipe={data} />
     </div>

@@ -7,12 +7,18 @@ const page = async () => {
   return (
     <Auth>
       <Navbar />
-      <Link
-        className=" text-white border shadow p-5 rounded"
-        href="/photos/upload"
+      <div
+        style={{ top: 0 }}
+        className="bg-slate-800 flex justify-around fixed w-screen flex p-2"
       >
-        Upload +
-      </Link>
+        <Link
+          className="text-white border shadow p-2 rounded"
+          href="/photos/upload"
+        >
+          Upload +
+        </Link>
+        <input className="p-2" placeholder="search" />
+      </div>
       <Gallery />
     </Auth>
   );

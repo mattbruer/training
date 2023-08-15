@@ -9,7 +9,7 @@ const Header = () => {
   const dayOfWeek = daysOfWeek[new Date(+year, +month - 1, +day).getDay()];
 
   return (
-    <div className="text-4xl mt-5 text-center">
+    <div className="text-4xl p-5 text-center">
       <p>{`${dayOfWeek} ${months[+month - 1]} ${day}, ${year}`}</p>
     </div>
   );

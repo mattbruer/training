@@ -2,8 +2,8 @@ import React from "react";
 
 const Details = ({ data }: any) => {
   return (
-    <div>
-      <p>{data.createdAt}</p>
+    <div className="text-white">
+      <p>{new Date(data.createdAt).toLocaleDateString()}</p>
       <p>{data.caption}</p>
     </div>
   );

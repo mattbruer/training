@@ -28,15 +28,18 @@ const Selectors = ({ socket }: any) => {
   };
 
   return (
-    <div className="p-5">
-      <Selector name="Mood" kind="moodLevel" />
-      <Selector name="Anxiety" kind="anxietyLevel" />
-      <Selector name="Energy" kind="energyLevel" />
-      <Selector name="Stress" kind="stressLevel" />
+    <div className="p-5 flex flex-col items-center">
+      <div className="p-5 mb-5 shadow-2xl shadow-black bg-slate-800 rounded-xl">
+        <Selector name="Mood" kind="moodLevel" />
+        <Selector name="Energy" kind="energyLevel" />
+        <Selector name="Anxiety" kind="anxietyLevel" />
+        <Selector name="Stress" kind="stressLevel" />
+      </div>
+
       <textarea
         value={comment}
         onChange={(e) => setComment(e.target.value)}
-        className="border m-2 w-3/4"
+        className="border m-2 w-4/5"
         name="comment"
         placeholder="Comment:"
       />

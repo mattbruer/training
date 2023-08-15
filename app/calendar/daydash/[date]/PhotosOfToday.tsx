@@ -20,7 +20,11 @@ const PhotosOfToday = () => {
   }, [params.date]);
 
   return (
-    <div className="flex">
+    <div
+      style={{ height: "200px", backgroundColor: "whitesmoke" }}
+      className="flex"
+    >
+      Photos
       {photos.map((photo) => (
         <div
           className="border"

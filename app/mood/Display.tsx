@@ -13,33 +13,44 @@ const Display = () => {
 
   const partner = user!.name === "matt" ? "shanna" : "matt";
   return (
-    <div className="shadow-xl text-white text-center p-2">
+    <div className="mb-5 shadow-xl text-white text-center p-2">
       <h2 className="capitalize">{`${partner}'s Mood`}</h2>
-      <div className="flex">
-        <div className="border m-1 shadow-xl shadow-black rounded-xl w-1/4 text-center">
-          <div style={{ width: "100%", height: "100%", position: "relative" }}>
-            <Gauge value={(mood[partner].moodLevel / 100) * 264 - 132} />
-          </div>
+      <div
+        // style={{ maxWidth: "65%", margin: "auto" }}
+        className="flex items-center justify-center pb-5"
+      >
+        <div className="p-2">
+          <p>Mood</p>
+
+          <Gauge size="4.5rem" reverse={true} value={mood[partner].moodLevel} />
         </div>
-        <div className="border m-1 shadow-xl shadow-black rounded-xl w-1/4 text-center">
-          {/* <p>Anxiety</p> */}
-          <Gauge value={(mood[partner].anxietyLevel / 100) * 264 - 132} />
+        <div className="p-2">
+          <p>Energy</p>
+          <Gauge
+            size="4.5rem"
+            reverse={true}
+            value={mood[partner].energyLevel}
+          />
         </div>
-        <div className="border m-1 shadow-xl shadow-black rounded-xl w-1/4 text-center">
-          {/* <p>Energy</p> */}
-          <Gauge value={(mood[partner].energyLevel / 100) * 264 - 132} />
+        <div className="p-2">
+          <p>Anxiety</p>
+          <Gauge size="4.5rem" value={mood[partner].anxietyLevel} />
         </div>
-        <div className="border m-1 shadow-xl shadow-black rounded-xl w-1/4 text-center">
-          {/* <p>Stress</p> */}
-          <Gauge value={(mood[partner].stressLevel / 100) * 264 - 132} />
+
+        <div className="p-2">
+          <p>Stress</p>
+          <Gauge size="4.5rem" value={mood[partner].stressLevel} />
         </div>
-        <Link
-          href="/mood"
-          className="m-1 shadow-xl shadow-black w-1/4 m-1 h-24 border"
-        >
-          Your mood
-        </Link>
       </div>
+      <Link
+        style={{
+          boxShadow: "0px 0px 10px silver, inset 0px 0px 1px 1px white",
+        }}
+        href="/mood"
+        className="p-2 bg-red-800 hover:bg-red-900 rounded-2xl w-1/4 m-1 h-24 border"
+      >
+        Your mood
+      </Link>
     </div>
   );
 };

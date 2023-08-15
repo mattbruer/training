@@ -1,0 +1,15 @@
+#button1 {
+  color: rgb(3, 3, 3);
+  padding: 14px;
+  text-shadow: 0px 1px 1px rgb(253, 253, 253);
+  box-shadow: inset 0px 0px 2px 2px rgb(4, 4, 4), 0px 0px 10px 1px silver,
+    inset 0px 0px 10px 2px rgb(7, 12, 105);
+  margin: 5px;
+  border-radius: 20px;
+  background: conic-gradient(
+    at top center,
+    rgb(26, 6, 244),
+    rgb(255, 255, 255),
+    rgb(241, 6, 6)
+  );
+}

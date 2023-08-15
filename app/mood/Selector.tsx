@@ -20,10 +20,14 @@ const Selector = ({
 
   return (
     <div className="text-white">
-      <label htmlFor="selector">{name}</label>
+      <div>
+        <label htmlFor="selector">{name}</label>
+      </div>
+
       <input
         onChange={handleChange}
         className="ml-5"
+        style={{ width: "200px", margin: "auto" }}
         name="selector"
         type="range"
         value={val}
